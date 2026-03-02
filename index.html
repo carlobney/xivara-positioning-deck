@@ -16,34 +16,35 @@
 }
 .reveal { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
 .reveal .slides { text-align: left; }
-.reveal .slides section { padding: 40px 60px; }
+.reveal .slides section { padding: 28px 50px; box-sizing: border-box; }
 section.has-dark-background { background: var(--bg) !important; }
 .reveal h1, .reveal h2, .reveal h3 { color: var(--accent); font-weight: 700; text-transform: none; letter-spacing: -0.02em; }
-.reveal h1 { font-size: 2.2em; line-height: 1.15; }
-.reveal h2 { font-size: 1.5em; margin-bottom: 0.6em; }
-.reveal h3 { font-size: 1.1em; color: var(--teal); }
-.reveal p, .reveal li { font-size: 0.72em; line-height: 1.6; color: #ccc; }
+.reveal h1 { font-size: 2em; line-height: 1.15; }
+.reveal h2 { font-size: 1.3em; margin-bottom: 0.4em; }
+.reveal h3 { font-size: 1em; color: var(--teal); }
+.reveal p, .reveal li { font-size: 0.68em; line-height: 1.5; color: #ccc; }
 .reveal strong { color: #fff; }
 .reveal em { color: #999; font-style: italic; }
 .reveal .struck { text-decoration: line-through; color: #666; }
 .reveal .highlight { color: var(--accent); font-weight: 700; }
-.reveal .big-number { font-size: 2.5em; color: var(--accent); font-weight: 800; line-height: 1; }
-.reveal .subtitle { font-size: 0.65em; color: #888; margin-top: 0.3em; }
-.reveal table { width: 100%; border-collapse: collapse; font-size: 0.62em; margin: 0.8em 0; }
-.reveal table th { color: var(--accent); border-bottom: 2px solid var(--accent); padding: 8px 12px; text-align: left; font-weight: 600; }
-.reveal table td { border-bottom: 1px solid #333; padding: 8px 12px; color: #ccc; }
+.reveal .big-number { font-size: 2em; color: var(--accent); font-weight: 800; line-height: 1; }
+.reveal .subtitle { font-size: 0.6em; color: #888; margin-top: 0.2em; }
+.reveal table { width: 100%; border-collapse: collapse; font-size: 0.56em; margin: 0.5em 0; }
+.reveal table th { color: var(--accent); border-bottom: 2px solid var(--accent); padding: 6px 10px; text-align: left; font-weight: 600; }
+.reveal table td { border-bottom: 1px solid #333; padding: 5px 10px; color: #ccc; line-height: 1.4; }
 .reveal table tr:last-child td { border-bottom: none; }
 .reveal table tr.total td { border-top: 2px solid var(--accent); color: var(--accent); font-weight: 700; font-size: 1.1em; }
-.reveal .bar-row { display: flex; align-items: center; margin: 6px 0; font-size: 0.65em; }
-.reveal .bar-label { width: 260px; color: #ccc; flex-shrink: 0; }
-.reveal .bar-track { flex: 1; height: 28px; background: #222; border-radius: 4px; position: relative; overflow: hidden; }
+.reveal .bar-row { display: flex; align-items: center; margin: 5px 0; font-size: 0.62em; }
+.reveal .bar-label { width: 240px; color: #ccc; flex-shrink: 0; }
+.reveal .bar-track { flex: 1; height: 24px; background: #222; border-radius: 4px; overflow: hidden; }
 .reveal .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 10px; color: #fff; font-weight: 600; font-size: 0.9em; }
-.reveal .quote-block { border-left: 4px solid var(--accent); padding: 16px 24px; background: rgba(255,255,255,0.03); margin: 1em 0; font-size: 0.8em; }
+.reveal .quote-block { border-left: 4px solid var(--accent); padding: 12px 20px; background: rgba(255,255,255,0.03); margin: 0.6em 0; font-size: 0.78em; }
 .reveal .quote-block p { color: #eee; font-style: italic; margin: 0; }
-.reveal .positioning-box { background: linear-gradient(135deg, rgba(42,157,143,0.12), rgba(212,168,85,0.12)); border: 1px solid var(--teal); border-radius: 12px; padding: 28px 32px; margin: 0.8em 0; }
-.reveal .positioning-box p { font-size: 0.68em; }
-.reveal .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.reveal ul { list-style: none; padding: 0; }
+.reveal .positioning-box { background: linear-gradient(135deg, rgba(42,157,143,0.12), rgba(212,168,85,0.12)); border: 1px solid var(--teal); border-radius: 10px; padding: 18px 24px; margin: 0.5em 0; }
+.reveal .positioning-box p { font-size: 0.64em; margin: 0.4em 0; }
+.reveal .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.reveal ul { list-style: none; padding: 0; margin: 0.4em 0; }
+.reveal li { margin: 0.3em 0; }
 .reveal li::before { content: "→ "; color: var(--accent); font-weight: 700; }
 .reveal li.plain::before { content: ""; }
 .title-slide h1 { text-align: center; font-size: 2em; }
@@ -106,7 +107,7 @@ section.has-dark-background { background: var(--bg) !important; }
     <div class="bar-track"><div class="bar-fill" style="width:6%;background:#6c63ff;">$20–50K</div></div>
   </div>
   <br>
-  <p style="text-align:right;"><span class="big-number">$400–800K</span><br><span class="subtitle">total addressable value per year</span></p>
+  <p style="text-align:right;margin-top:12px;"><span class="big-number">$400–800K</span><br><span class="subtitle">total addressable value per year</span></p>
 </section>
 
 <!-- 5. THEY DON'T HIRE A COO -->
@@ -210,7 +211,9 @@ Reveal.initialize({
   backgroundTransition: 'none',
   width: 1280,
   height: 720,
-  margin: 0.04
+  margin: 0.04,
+  minScale: 0.2,
+  maxScale: 2.0
 });
 </script>
 </body>
