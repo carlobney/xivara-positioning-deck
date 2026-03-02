@@ -4,53 +4,208 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XiVara — The COO You Can't Afford</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
 <style>
 :root {
-  --accent: #d4a855;
-  --accent-dim: rgba(212,168,85,0.15);
-  --teal: #2a9d8f;
-  --red: #e76f51;
-  --bg: #1a1a2e;
+  --black:   #141414;
+  --white:   #FAFAFA;
+  --gold:    #C5A467;
+  --gold-bg: rgba(197,164,103,0.05);
+  --gold-border: rgba(197,164,103,0.20);
+  --mid:     #737373;
+  --light:   #EBEBEB;
+  --bg:      #0A0A0A;
+  --card-bg: rgba(255,255,255,0.04);
 }
-.reveal { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+
+/* ── Base ── */
+.reveal {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  background: var(--bg);
+}
 .reveal .slides { text-align: left; }
-.reveal .slides section { padding: 28px 50px; box-sizing: border-box; }
-section.has-dark-background { background: var(--bg) !important; }
-.reveal h1, .reveal h2, .reveal h3 { color: var(--accent); font-weight: 700; text-transform: none; letter-spacing: -0.02em; }
-.reveal h1 { font-size: 2em; line-height: 1.15; }
-.reveal h2 { font-size: 1.3em; margin-bottom: 0.4em; }
-.reveal h3 { font-size: 1em; color: var(--teal); }
-.reveal p, .reveal li { font-size: 0.68em; line-height: 1.5; color: #ccc; }
-.reveal strong { color: #fff; }
-.reveal em { color: #999; font-style: italic; }
-.reveal .struck { text-decoration: line-through; color: #666; }
-.reveal .highlight { color: var(--accent); font-weight: 700; }
-.reveal .big-number { font-size: 2em; color: var(--accent); font-weight: 800; line-height: 1; }
-.reveal .subtitle { font-size: 0.6em; color: #888; margin-top: 0.2em; }
-.reveal table { width: 100%; border-collapse: collapse; font-size: 0.56em; margin: 0.5em 0; }
-.reveal table th { color: var(--accent); border-bottom: 2px solid var(--accent); padding: 6px 10px; text-align: left; font-weight: 600; }
-.reveal table td { border-bottom: 1px solid #333; padding: 5px 10px; color: #ccc; line-height: 1.4; }
-.reveal table tr:last-child td { border-bottom: none; }
-.reveal table tr.total td { border-top: 2px solid var(--accent); color: var(--accent); font-weight: 700; font-size: 1.1em; }
-.reveal .bar-row { display: flex; align-items: center; margin: 5px 0; font-size: 0.62em; }
-.reveal .bar-label { width: 240px; color: #ccc; flex-shrink: 0; }
-.reveal .bar-track { flex: 1; height: 24px; background: #222; border-radius: 4px; overflow: hidden; }
-.reveal .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 10px; color: #fff; font-weight: 600; font-size: 0.9em; }
-.reveal .quote-block { border-left: 4px solid var(--accent); padding: 12px 20px; background: rgba(255,255,255,0.03); margin: 0.6em 0; font-size: 0.78em; }
-.reveal .quote-block p { color: #eee; font-style: italic; margin: 0; }
-.reveal .positioning-box { background: linear-gradient(135deg, rgba(42,157,143,0.12), rgba(212,168,85,0.12)); border: 1px solid var(--teal); border-radius: 10px; padding: 18px 24px; margin: 0.5em 0; }
-.reveal .positioning-box p { font-size: 0.64em; margin: 0.4em 0; }
-.reveal .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.reveal .slides section {
+  padding: 32px 56px;
+  box-sizing: border-box;
+  background: var(--bg);
+}
+
+/* ── Type ── */
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--white);
+}
+.reveal h1 { font-size: 2em; }
+.reveal h2 { font-size: 1.3em; margin-bottom: 0.5em; }
+
+.reveal p, .reveal li, .reveal td, .reveal th {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  font-size: 0.68em;
+  line-height: 1.55;
+  color: var(--mid);
+}
+.reveal strong { color: var(--white); font-weight: 600; }
+.reveal em { font-style: italic; }
+
+/* Section labels (overlines) */
+.label {
+  font-size: 0.55em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mid);
+  margin-bottom: 0.6em;
+  display: block;
+}
+
+/* Mono for numbers/data */
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+}
+
+/* Vivian Gold — only for Vivian's presence */
+.vivian { color: var(--gold); font-weight: 600; }
+.vivian-text { color: var(--gold); }
+
+/* XiVara name — always white */
+.xivara { color: var(--white); font-weight: 600; }
+
+/* Strikethrough */
+.struck { text-decoration: line-through; color: #444; }
+
+/* ── Quote Block (Vivian's voice) ── */
+.v-quote {
+  border-left: 2px solid var(--gold);
+  padding: 14px 20px;
+  background: var(--gold-bg);
+  border-radius: 0 8px 8px 0;
+  margin: 0.8em 0;
+}
+.v-quote p {
+  color: rgba(250,250,250,0.9);
+  font-style: italic;
+  margin: 0 0 6px;
+  font-size: 0.85em;
+}
+.v-sig {
+  color: var(--gold);
+  font-weight: 500;
+  font-size: 0.75em;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(235,235,235,0.08);
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.card-title {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.72em;
+  margin-bottom: 5px;
+  display: block;
+}
+.card-body { color: var(--mid); font-size: 0.64em; }
+.card-value { color: var(--gold); font-weight: 600; font-size: 0.68em; margin-top: 6px; display: block; }
+
+/* ── Recommendation Box ── */
+.rec-box {
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  padding: 18px 24px;
+  margin: 0.6em 0;
+}
+.rec-box p { color: rgba(250,250,250,0.88); font-size: 0.68em; margin: 0.3em 0; }
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid rgba(235,235,235,0.10);
+  margin: 14px 0;
+}
+
+/* ── Bar chart ── */
+.bar-row { display: flex; align-items: center; margin: 6px 0; }
+.bar-label { width: 230px; color: var(--mid); font-size: 0.6em; flex-shrink: 0; }
+.bar-track { flex: 1; height: 22px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; }
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  display: flex; align-items: center;
+  padding-left: 10px;
+  color: var(--black);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 0.58em;
+}
+
+/* ── Grid ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+/* ── Pricing comparison ── */
+.price-col { text-align: center; padding: 18px 14px; }
+.price-col .price-label { font-size: 0.58em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mid); }
+.price-col .price-num { font-family: 'JetBrains Mono', monospace; font-size: 1.5em; font-weight: 500; line-height: 1.2; margin: 8px 0; }
+.price-col .price-sub { font-size: 0.56em; color: var(--mid); }
+
+/* ── Big stat ── */
+.big-stat { font-family: 'JetBrains Mono', monospace; font-size: 2.2em; font-weight: 500; color: var(--white); line-height: 1; }
+.big-stat-sub { font-size: 0.58em; color: var(--mid); margin-top: 4px; }
+
+/* ── Logo mark ── */
+.logo-mark {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 16px;
+}
+.logo-circle {
+  width: 28px; height: 28px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; color: var(--bg);
+  font-family: 'Instrument Sans', sans-serif;
+}
+.logo-word { font-size: 0.8em; font-weight: 500; color: var(--white); }
+
+/* ── Patchwork list ── */
+.patch-list {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 10px 0;
+}
+.patch-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(235,235,235,0.10);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.6em;
+  color: var(--mid);
+}
+.patch-pill.owner {
+  border-color: rgba(197,164,103,0.30);
+  color: var(--gold);
+  background: var(--gold-bg);
+}
+
+/* ── Bullet list ── */
 .reveal ul { list-style: none; padding: 0; margin: 0.4em 0; }
-.reveal li { margin: 0.3em 0; }
-.reveal li::before { content: "→ "; color: var(--accent); font-weight: 700; }
-.reveal li.plain::before { content: ""; }
-.title-slide h1 { text-align: center; font-size: 2em; }
-.title-slide .subtitle { text-align: center; font-size: 0.8em; }
-.reveal .fragment.strike-it { text-decoration: none; }
-.reveal .fragment.strike-it.visible { text-decoration: line-through; color: #666; }
+.reveal li { margin: 0.35em 0; font-size: 0.68em; color: var(--mid); }
+.reveal li::before { content: "●  "; color: var(--gold); font-size: 0.7em; }
+
+/* ── Title slide ── */
+.title-slide { display: flex !important; flex-direction: column; justify-content: center; }
 </style>
 </head>
 <body>
@@ -58,67 +213,85 @@ section.has-dark-background { background: var(--bg) !important; }
 <div class="slides">
 
 <!-- 1. TITLE -->
-<section data-background-color="#1a1a2e" class="title-slide">
-  <h1>The COO You Can't Afford<br><span style="color:#2a9d8f">— And the One You Can</span></h1>
-  <p class="subtitle">XiVara · March 2026</p>
+<section data-background-color="#0A0A0A" class="title-slide">
+  <div class="logo-mark">
+    <div class="logo-circle">X</div>
+    <span class="logo-word">XiVara</span>
+  </div>
+  <h1>The COO You Can't Afford<br><span style="color:var(--mid);font-weight:400;">— and the one you can.</span></h1>
+  <p style="margin-top:20px;font-size:0.62em;">March 2026</p>
 </section>
 
 <!-- 2. THE OLD STORY -->
-<section data-background-color="#1a1a2e">
-  <h2>The Old Story</h2>
-  <div class="quote-block">
+<section data-background-color="#0A0A0A">
+  <span class="label">The Starting Point</span>
+  <h2>We had the right instinct.<br>Wrong anchor.</h2>
+  <div class="v-quote" style="margin:18px 0;">
     <p>"XiVara replaces a $250K COO"</p>
   </div>
   <ul>
     <li>A $250K COO appears at <strong>$10M+ revenue</strong></li>
-    <li>Your customers are at $800K–$3M — <strong>3–10× too small</strong> for that hire</li>
-    <li>The analogy was aspirationally right but <strong>factually wrong</strong></li>
-    <li>Merten called it. We fixed it.</li>
+    <li>Our customers are at $800K–$3M — <strong>3–10× too small</strong> for that hire</li>
+    <li>The aspiration was right. The salary anchor was wrong.</li>
+    <li>Merten called it. We ran the research. Here's what we found.</li>
   </ul>
 </section>
 
 <!-- 3. THE RIGHT QUESTION -->
-<section data-background-color="#1a1a2e">
-  <h2>The Right Question</h2>
-  <p><em class="struck">Wrong: "What's a more honest salary anchor?"</em></p>
-  <br>
-  <p style="font-size:1em;"><strong style="color:var(--teal);">Right: "What is the total value of everything we deliver?"</strong></p>
-  <br>
-  <p>The answer is <span class="highlight">much bigger</span> than a single hire.</p>
+<section data-background-color="#0A0A0A">
+  <span class="label">The Reframe</span>
+  <h2>Ask a better question.</h2>
+  <div style="margin:20px 0 14px;">
+    <p class="struck" style="font-size:0.72em;margin-bottom:12px;">❌ &nbsp;"What's a more honest salary anchor?"</p>
+    <div class="rec-box">
+      <p style="font-size:0.78em;color:var(--white);font-weight:600;">✓ &nbsp;"What is the total value of everything we deliver?"</p>
+    </div>
+  </div>
+  <p style="margin-top:16px;">The answer is <strong>much bigger</strong> than a single hire — and it changes how we price, how we sell, and how we talk about the platform.</p>
 </section>
 
-<!-- 4. WHAT A $1.5M CLINIC ACTUALLY SPENDS -->
-<section data-background-color="#1a1a2e">
-  <h2>What a $1.5M Clinic Actually Spends</h2>
-  <div class="bar-row">
-    <span class="bar-label">Owner time (opportunity cost)</span>
-    <div class="bar-track"><div class="bar-fill" style="width:56%;background:var(--accent);">$200–450K</div></div>
+<!-- 4. COST BREAKDOWN -->
+<section data-background-color="#0A0A0A">
+  <span class="label">The Math</span>
+  <h2>What a $1.5M clinic actually spends.</h2>
+  <div style="margin:14px 0;">
+    <div class="bar-row">
+      <span class="bar-label">Owner time (opportunity cost)</span>
+      <div class="bar-track"><div class="bar-fill" style="width:58%;background:var(--gold);">$200–450K</div></div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Ops headcount</span>
+      <div class="bar-track"><div class="bar-fill" style="width:22%;background:#888;">$100–170K</div></div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Revenue leakage</span>
+      <div class="bar-track"><div class="bar-fill" style="width:18%;background:#555;">$75–150K</div></div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Software &amp; services</span>
+      <div class="bar-track"><div class="bar-fill" style="width:6%;background:#333;">$20–50K</div></div>
+    </div>
   </div>
-  <div class="bar-row">
-    <span class="bar-label">Ops headcount</span>
-    <div class="bar-track"><div class="bar-fill" style="width:21%;background:var(--teal);">$100–170K</div></div>
+  <hr class="divider">
+  <div style="display:flex;justify-content:flex-end;align-items:baseline;gap:10px;">
+    <span style="font-size:0.6em;color:var(--mid);">Total addressable value</span>
+    <span class="big-stat">$400–800K</span>
+    <span style="font-size:0.6em;color:var(--mid);">/ yr</span>
   </div>
-  <div class="bar-row">
-    <span class="bar-label">Revenue leakage</span>
-    <div class="bar-track"><div class="bar-fill" style="width:19%;background:var(--red);">$75–150K</div></div>
-  </div>
-  <div class="bar-row">
-    <span class="bar-label">Software &amp; services</span>
-    <div class="bar-track"><div class="bar-fill" style="width:6%;background:#6c63ff;">$20–50K</div></div>
-  </div>
-  <br>
-  <p style="text-align:right;margin-top:12px;"><span class="big-number">$400–800K</span><br><span class="subtitle">total addressable value per year</span></p>
 </section>
 
-<!-- 5. THEY DON'T HIRE A COO -->
-<section data-background-color="#1a1a2e">
-  <h2>They Don't Hire a COO —<br>They Assemble One</h2>
-  <p style="font-size:0.75em; color:var(--accent); margin-bottom:0.8em;">The patchwork:</p>
-  <p style="font-size:0.72em; color:#aaa; text-align:center; line-height:2;">
-    Practice Manager &nbsp;+&nbsp; Front Desk &nbsp;+&nbsp; VA &nbsp;+&nbsp; Bookkeeper<br>
-    +&nbsp; Marketing Agency &nbsp;+&nbsp; <strong style="color:var(--red);">Owner's Nights &amp; Weekends</strong>
-  </p>
-  <br>
+<!-- 5. THE PATCHWORK -->
+<section data-background-color="#0A0A0A">
+  <span class="label">The Problem</span>
+  <h2>They don't hire a COO.<br>They assemble one.</h2>
+  <div class="patch-list" style="margin:18px 0;">
+    <span class="patch-pill">Practice Manager</span>
+    <span class="patch-pill">Front Desk</span>
+    <span class="patch-pill">Virtual Assistant</span>
+    <span class="patch-pill">Bookkeeper</span>
+    <span class="patch-pill">Marketing Agency</span>
+    <span class="patch-pill owner">Owner's Nights &amp; Weekends</span>
+  </div>
   <ul>
     <li>Each piece is a band-aid</li>
     <li>None of them talk to each other</li>
@@ -127,99 +300,119 @@ section.has-dark-background { background: var(--bg) !important; }
 </section>
 
 <!-- 6. WHAT XIVARA COMPRESSES -->
-<section data-background-color="#1a1a2e">
-  <h2>What XiVara Compresses</h2>
-  <p style="color:#888;font-size:0.58em;margin-bottom:0.6em;">What each part of the patchwork gets replaced or improved by:</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:0.62em;">
-    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:14px 16px;">
-      <div style="color:var(--accent);font-weight:700;margin-bottom:6px;">Ops + workflow enforcement</div>
-      <div style="color:#aaa;">20–40% of practice manager time</div>
-      <div style="color:var(--teal);font-weight:700;margin-top:4px;">$20–45K value</div>
+<section data-background-color="#0A0A0A">
+  <span class="label">The Solution</span>
+  <h2>What <span class="xivara">XiVara</span> compresses.</h2>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card">
+      <span class="card-title">Ops + workflow enforcement</span>
+      <span class="card-body">20–40% of practice manager time</span>
+      <span class="card-value">$20–45K value</span>
     </div>
-    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:14px 16px;">
-      <div style="color:var(--accent);font-weight:700;margin-bottom:6px;">Vivian (AI intelligence)</div>
-      <div style="color:#aaa;">Owner's 5–10 hrs/wk + fractional COO</div>
-      <div style="color:var(--teal);font-weight:700;margin-top:4px;">$25–50K value</div>
+    <div class="card">
+      <span class="card-title"><span class="vivian">Vivian</span> — AI intelligence</span>
+      <span class="card-body">Owner's 5–10 hrs/wk + fractional COO</span>
+      <span class="card-value">$25–50K value</span>
     </div>
-    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:14px 16px;">
-      <div style="color:var(--accent);font-weight:700;margin-bottom:6px;">Proactive alerts + behavioral analysis</div>
-      <div style="color:#aaa;">No-show recovery, churn, missed upsells</div>
-      <div style="color:var(--teal);font-weight:700;margin-top:4px;">$25–75K value</div>
+    <div class="card">
+      <span class="card-title">Proactive alerts + behavioral analysis</span>
+      <span class="card-body">No-show recovery, churn, missed upsells</span>
+      <span class="card-value">$25–75K value</span>
     </div>
-    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:14px 16px;">
-      <div style="color:var(--accent);font-weight:700;margin-bottom:6px;">Revenue uplift levers</div>
-      <div style="color:#aaa;">Rebooking, BNPL at checkout, utilization</div>
-      <div style="color:var(--teal);font-weight:700;margin-top:4px;">$100–300K value</div>
+    <div class="card">
+      <span class="card-title">Revenue uplift levers</span>
+      <span class="card-body">Rebooking, BNPL at checkout, utilization</span>
+      <span class="card-value">$100–300K value</span>
     </div>
-    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:14px 16px;">
-      <div style="color:var(--accent);font-weight:700;margin-bottom:6px;">Financial clarity</div>
-      <div style="color:#aaa;">Bookkeeper hours + P&L traps avoided</div>
-      <div style="color:var(--teal);font-weight:700;margin-top:4px;">$5–20K value</div>
+    <div class="card">
+      <span class="card-title">Financial clarity</span>
+      <span class="card-body">Bookkeeper hours + P&amp;L trap avoidance</span>
+      <span class="card-value">$5–20K value</span>
     </div>
-    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:14px 16px;">
-      <div style="color:var(--accent);font-weight:700;margin-bottom:6px;">Marketing automation</div>
-      <div style="color:#aaa;">$2K/mo agency + lead-chase time</div>
-      <div style="color:var(--teal);font-weight:700;margin-top:4px;">$20–50K value</div>
+    <div class="card">
+      <span class="card-title">Marketing automation</span>
+      <span class="card-body">$2K/mo agency + lead-chase time</span>
+      <span class="card-value">$20–50K value</span>
     </div>
   </div>
 </section>
 
 <!-- 7. THE NEW POSITIONING -->
-<section data-background-color="#1a1a2e">
-  <h2>The New Positioning</h2>
-  <p style="font-size:0.9em;color:var(--accent);font-weight:700;margin:0.5em 0 0.8em;">"The operational infrastructure of a $10M business — available at $1M."</p>
-  <div style="background:rgba(42,157,143,0.08);border-left:4px solid var(--teal);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:14px;">
-    <p style="margin:0 0 8px;">For independent med spa owners who spend <strong>400–800K/year</strong> on the patchwork of people, software, agencies, and their own time to run operations —</p>
-    <p style="margin:0;">XiVara compresses that entire infrastructure into one intelligent system. <strong style="color:var(--teal)">Vivian, your AI Chief of Staff</strong>, runs it.</p>
+<section data-background-color="#0A0A0A">
+  <span class="label">Positioning</span>
+  <h2>The new story.</h2>
+  <div class="rec-box" style="margin:14px 0 10px;">
+    <p style="font-size:0.8em;color:var(--white);font-weight:600;margin-bottom:10px;">"The operational infrastructure of a $10M business — available at $1M."</p>
+    <p>For independent med spa owners who spend <strong>$400–800K/year</strong> on the patchwork of people, software, agencies, and their own time —</p>
+    <p><span class="xivara">XiVara</span> compresses that entire infrastructure into one intelligent system. <span class="vivian">Vivian</span>, your AI Chief of Staff, runs it.</p>
   </div>
-  <p style="font-size:0.6em;color:#777;border-top:1px solid #333;padding-top:12px;margin-top:4px;">Unlike Zenoti, Boulevard, or Moxie — XiVara was built by a 13-year operator and an AI engineering team, purpose-built to help you scale to $5–10M without giving up equity or hiring executives you can't afford.</p>
+  <hr class="divider">
+  <p style="font-size:0.58em;">Unlike Zenoti, Boulevard, or Moxie — built by a 13-year operator and an AI engineering team, purpose-built to help you scale to $5–10M without giving up equity or hiring executives you can't afford.</p>
 </section>
 
 <!-- 8. PRICING IMPLICATIONS -->
-<section data-background-color="#1a1a2e">
-  <h2>Pricing Implications</h2>
-  <div class="grid-2">
-    <div>
-      <h3>Old Anchor</h3>
-      <p class="struck" style="font-size:1.2em;">$300–500/mo</p>
-      <p style="color:#888;">Software pricing</p>
+<section data-background-color="#0A0A0A">
+  <span class="label">The Pricing Conversation</span>
+  <h2>The value cloud changes the range.</h2>
+  <div class="grid-2" style="margin:18px 0 14px;gap:20px;">
+    <div class="card price-col" style="opacity:0.5;">
+      <div class="price-label">Old anchor</div>
+      <div class="price-num mono struck" style="color:var(--mid);">$300–500</div>
+      <div class="price-sub">/mo · software pricing</div>
     </div>
-    <div>
-      <h3>New Anchor</h3>
-      <p style="font-size:1.2em;"><strong style="color:var(--accent);">$500–3,000/mo</strong></p>
-      <p style="color:#888;">Value-backed pricing</p>
+    <div class="card price-col" style="border-color:var(--gold-border);background:var(--gold-bg);">
+      <div class="price-label">New anchor</div>
+      <div class="price-num mono vivian-text">$500–3,000</div>
+      <div class="price-sub">/mo · value-backed pricing</div>
     </div>
   </div>
-  <br>
   <ul>
-    <li>Even at $3K/mo ($36K/yr), we capture <strong>4–9%</strong> of the value we deliver</li>
+    <li>At $3K/mo ($36K/yr), we capture <strong>4–9%</strong> of the value we deliver</li>
     <li>The ROI case writes itself</li>
   </ul>
 </section>
 
 <!-- 9. THE VIVIAN ARC -->
-<section data-background-color="#1a1a2e">
-  <h2>The Vivian Arc</h2>
+<section data-background-color="#0A0A0A">
+  <span class="label">The Intelligence</span>
+  <h2><span class="vivian">Vivian</span></h2>
+  <div class="v-quote" style="margin:16px 0;">
+    <p>"Your 10am is Emily Chen — last Botox was 4 months ago,<br>she typically does touch-ups at 3 months."</p>
+    <span class="v-sig">— V</span>
+  </div>
   <ul>
-    <li>Vivian starts as your <strong>Chief of Staff</strong></li>
+    <li><span class="vivian">Vivian</span> starts as your <strong>Chief of Staff</strong></li>
     <li>She knows your patients, your providers, your numbers</li>
     <li>She surfaces what needs attention <strong>before you ask</strong></li>
     <li>Her plan is absolutely to grow into your COO</li>
   </ul>
-  <br>
-  <div class="quote-block">
-    <p>"A hire, not software."</p>
-  </div>
+  <p style="margin-top:14px;font-size:0.62em;color:var(--mid);font-style:italic;">XiVara is the platform. <span class="vivian">Vivian</span> is the intelligence.</p>
 </section>
 
 <!-- 10. WHAT'S NEXT -->
-<section data-background-color="#1a1a2e">
-  <h2>What's Next</h2>
-  <ul>
-    <li><strong>MVP: April 2026</strong> at Avant Tous<br><span style="color:#888;font-size:0.85em;">Ellen Pino, 13-year operator, first customer</span></li>
-    <li><strong>Fundraising:</strong> $1–2M SAFEs, 90-day window</li>
-    <li>The first clinic proves the value. <strong>Then we replicate.</strong></li>
-  </ul>
+<section data-background-color="#0A0A0A">
+  <span class="label">What's Next</span>
+  <h2>The first clinic proves it.<br>Then we replicate.</h2>
+  <div style="margin:18px 0;display:flex;flex-direction:column;gap:12px;">
+    <div class="card" style="display:flex;align-items:center;gap:20px;">
+      <div class="mono" style="font-size:1.2em;color:var(--gold);flex-shrink:0;">APR 2026</div>
+      <div>
+        <span style="font-size:0.68em;color:var(--white);font-weight:600;">MVP live at Avant Tous</span><br>
+        <span style="font-size:0.6em;color:var(--mid);">Ellen Pino · 13-year operator · first customer</span>
+      </div>
+    </div>
+    <div class="card" style="display:flex;align-items:center;gap:20px;">
+      <div class="mono" style="font-size:1.2em;color:var(--white);flex-shrink:0;">90 DAYS</div>
+      <div>
+        <span style="font-size:0.68em;color:var(--white);font-weight:600;">$1–2M SAFE fundraising window</span><br>
+        <span style="font-size:0.6em;color:var(--mid);">Raising now alongside the MVP build</span>
+      </div>
+    </div>
+  </div>
+  <div class="logo-mark" style="margin-top:16px;">
+    <div class="logo-circle">X</div>
+    <span class="logo-word">XiVara</span>
+  </div>
 </section>
 
 </div>
